@@ -1,0 +1,35 @@
+$conn = mysqli_connect('localhost', 'moonsh', 'moon0321', 'sharecare');
+
+// 회원가입
+아이디
+비밀번호
+이메일
+이름
+전화번호
+--
+키
+몸무게
+케어목적
+닉네임
+
+create table members (
+   user_num INT AUTO_INCREMENT PRIMARY KEY,
+   uid varchar(12),
+   upass varchar(15),
+   uname varchar(10),
+   mphone varchar(15),
+   email varchar(30), );
+
+create table memberinfo (
+   user_num INT AUTO_INCREMENT PRIMARY KEY,
+   height int(3),
+   weight int(3),
+   chk_info_column int(1),
+   unickname varchar(16), );
+   
+ 
+// 기록
+날짜
+활동 내용
+음식
+칼로리

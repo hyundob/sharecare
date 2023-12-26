@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="button_script.js"></script>
+  	<link rel="stylesheet" href="./button_style.css">
+    <title>ShareCare</title>
+    <style>
+        body,html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F6F6F6;
+            min-width:80%;
+        }
+
+        .login {
+	        height:10px;
+	        margin-top:20px;
+            margin-right: 20%;
+	        float:right;
+        }
+		
+		.logo {
+			margin-top: 30px;
+		}
+
+        header {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 5px;
+        }
+		
+		
+
+        .line {
+            border-top: 1px solid #5a5a5a;
+            margin: auto;
+            width: 70rem; 
+        }
+
+        nav {
+           
+            text-align: center;
+            
+        }
+
+        nav ul {
+            font-size: 22px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a:link { color: rgb(71, 71, 71); text-decoration: none;}
+        
+        a:visited { color: rgb(71, 71, 71); text-decoration: none;}
+		a:hover { color: #20CE88; text-decoration: none;}
+		
+
+
+        nav li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        
+
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+		
+		.section1 {
+			height: 600px;
+		}
+
+		.mypage { 
+			width: 1000px;
+			margin: auto;
+			position: relative;
+			
+		}
+		
+		.top .today { 
+			margin-left: 50px;
+			float: left;
+			
+		}
+		
+		.today h1 { 
+			color: #433357;
+			padding: 15px 50px;
+			text-align: center;
+			font-size:40px;
+			background: #FFF8EF;
+			box-shadow: 3px 3px #CCBFB8;
+			border-radius: 8px;
+		}
+		
+		.profile {
+			width: 650px;
+			float: left;
+  			height: 80px;
+			margin-top: 50px;
+			margin-left: 20px;
+		}
+		
+		.profile img {
+			float: left;
+			width: 100px;
+			margin-top: -20px;
+			margin-right: 15px;
+		}
+		
+		.profile p {
+			float: left;
+			font-size: 25px;
+			font-weight: bold;
+			height: 50px;
+			text-align: left;
+			margin-top: 15px;
+		}
+		
+		.child2 {
+			width: 200px;
+			float: left;
+		}
+		
+		.child {
+			width: 130px;
+			
+		}
+		
+		.profile button {
+			padding: 10px 30px;
+			font-size: 15px;
+			font-weight: bold;
+			margin-top: -80px;
+			margin-left: 100px;
+			cursor: pointer;
+			float: right;
+		}
+		
+		.main {  /*기록내역*/
+			width: 900px;
+			height: 350px;
+			margin: auto;
+			
+		}
+		
+		.history1 {
+			position: absolute;
+			top: 50%;
+			left: 30px;
+			float: left;
+			width: 470px;
+			box-shadow: 0px 1px 8px gray;
+		}
+		
+		.history1 h3 {
+			font-size: 30px;
+			background: #EFCD79;
+			padding: 15px 150px;
+			width: 100%;
+			float: left;	
+		}
+		.history1 ul {
+			background: #FFFFFF;
+			height: 320px;
+			line-height: 1.8;
+ 			margin: 0;
+  			padding-inline-start: 1.5em;
+			
+		}
+		
+		.history1 li { 
+			list-style-type:none;
+			text-align: left;
+		}
+		
+		.history2 { /*칼로리기록*/
+			position: absolute;
+			top: 50%;
+			left: 53%;
+			box-shadow: 0px 1px 8px gray;
+		}
+		
+		.history2 h3 {
+			font-size: 30px;
+			background:#85E5C3;
+			padding: 15px 150px;
+			float: left;	
+			width: 100%;
+		}
+		
+		.history2 ul {
+			background: #FFFFFF;
+			height: 320px;
+			line-height: 1.8;
+ 			 margin: 0;
+  			padding-inline-start: 1.5em;
+			
+		}
+		
+		.history2 li { 
+			list-style-type:none;
+			text-align: left;
+		}
+		
+		.sectionline {
+            border-top: 2px solid #C4C0BD;
+            margin: auto;
+            width: 100% 
+        }
+		
+		.section2 { 
+			height: 900px;
+			text-align: center;
+			position: relative;
+			margin: auto;
+		}
+		
+		.sub_photo {
+			width: 1000px;
+ 			position: absolute;
+  			top: 50%;
+  			left: 52%;
+  			transform: translate(-50%, -50%);
+		}
+		
+		.hh_photo { 
+			margin-left: -50px;
+		}
+		
+		/* 갤러리 */
+		.sub_photo li{float:left; width:210px;margin-right:8px; margin-bottom:30px; list-style-type:none;}
+		.sub_photo li.last{margin-right:0}
+		.sub_photo li a strong{overflow:hidden;padding-right:8px;white-space:nowrap; text-overflow:ellipsis; font-size:18px;}
+		.sub_photo li img{width:200px; height:200px;}
+		.sub_photo p.thmb{margin-bottom:3px}
+		.sub_photo .tx_brief{margin-top:2px;padding-right:13px}
+		.sub_photo .tx_brief a{color:#666}
+		/* //갤러리 */
+
+ 
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+	
+    <nav class="login" id="loginNav">
+        
+        <a href="#" id="logoutLink">로그아웃</a>
+    </nav>
+
+    <br>
+
+    <div class="logo">
+        <a href="/index.html">
+        <img src="image/logo.png">
+        </a>
+    </div>
+        
+</header>
+    
+    <div class="line"></div>
+
+    <nav>
+        <ul>
+            <li><a href="/000.introduce/introduce.html">소개</a></li>
+            <li><a href="/index.html" style="color: #20CE88;">홈</a></li>
+            <li><a href="/board1">운동</a></li>
+            <li><a href="/board2">식단</a></li>
+            <li><a href="/mypage">기록</a></li>
+            <li><a href="/008.sharetalk/ShareTalk.html">셰어톡</a></li>
+			<li id="adminMenuItem" style="display: none;"><a href="/admin">회원관리</a></li>
+        </ul>
+    </nav>
+    
+    <section class="section1">
+        <div class="mypage">
+			
+			<div class="top">
+				<div class="today">
+					<a href="/mypage"><h1>기록내역</h1></a>
+				</div>
+				<div class="profile">
+					<img src="image/profile.png" class="child">
+					<p class="child" id="child"></p><p class="child2">님 안녕하세요!</p>
+					<a href="/mypage" class="child"><button>마이페이지</button></a>
+				</div>
+			</div>
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					fetch('/get-unickname')
+						.then(response => response.json())
+						.then(data => {
+							const unicknameElement = document.getElementById('child');
+							unicknameElement.textContent = data.unickname;
+						})
+						.catch(error => console.error('Error:', error));
+				});
+			</script>
+			
+			<div class="main">
+				<div class="history1">
+					<h3>활동 기록</h3>
+					<ul>
+						<li>2023.12.02 | 인터벌 달리기 60분 </li>
+						<li>2023.12.01 | 팔굽혀펴기 30회</li>
+						<li>2023.11.30 | 스쿼트 50회</li>
+					</ul>
+				</div>
+				<div class="history2">
+					<h3>식단 기록</h3>
+					<ul>
+						<li>2023.12.02 | 아침 : 그래놀라, 점심 ...</li>
+						<li>2023.12.01 | 아침 : 사과 1개, 점심 ...</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+    </section>
+	<script>
+		fetch('/get-user-num')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('User not authenticated');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.user_num === 7) {
+                document.getElementById('adminMenuItem').style.display = 'inline';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+		document.addEventListener('DOMContentLoaded', function () {
+		// 서버로부터 사용자의 활동 기록을 가져오는 함수
+		function fetchUserRecords1() {
+			fetch('/api/get_records1')
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+				displayActivityRecords(data.records);
+				} else {
+				console.error('활동 기록을 가져오는 데 실패했습니다.');
+				}
+			})
+			.catch(error => console.error('Error:', error));
+		}
+
+		// 서버로부터 사용자의 식단 기록을 가져오는 함수
+		function fetchUserRecords2() {
+			fetch('/api/get_records2')
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+				displayDietRecords(data.records);
+				} else {
+				console.error('식단 기록을 가져오는 데 실패했습니다.');
+				}
+			})
+			.catch(error => console.error('Error:', error));
+		}
+
+		// 활동 기록을 화면에 표시하는 함수
+		function displayActivityRecords(records) {
+			const historyElement = document.querySelector('.history1 ul');
+			historyElement.innerHTML = '';
+			records.forEach(record => {
+			const li = document.createElement('li');
+			const date = new Date(record.regdate);
+			const options = { year: 'numeric', month: 'long', day: 'numeric'};
+			const formattedDate = date.toLocaleDateString('ko-KR', options);
+			li.textContent = `${formattedDate} | ${record.content}`;
+			historyElement.appendChild(li);
+			});
+		}
+
+		// 식단 기록을 화면에 표시하는 함수
+		function displayDietRecords(records) {
+			const historyElement = document.querySelector('.history2 ul');
+			historyElement.innerHTML = '';
+			records.forEach(record => {
+			const li = document.createElement('li');
+			const date = new Date(record.regdate);
+			const options = { year: 'numeric', month: 'long', day: 'numeric'};
+			const formattedDate = date.toLocaleDateString('ko-KR', options);
+			li.textContent = `${formattedDate} | ${record.content}`;
+			historyElement.appendChild(li);
+			});
+		}
+
+		// 사용자의 활동 기록과 식단 기록을 가져옴
+		fetchUserRecords1();
+		fetchUserRecords2();
+		});
+		
+	</script>
+	
+	
+    <div class="sectionline"></div>
+	
+    <section class="section2">
+        <!-- 갤러리시작 -->
+		<div class="sub_photo">
+    		<div class="title_area">
+        		<h4 class="hh_photo" style="font-size: 30px;"><strong class="blind">갤러리</strong></h4>
+    		</div>
+			<ul>
+			<li>
+				<p class="thmb">
+					<a href="/board2">
+						<img src="image/img1.jpg"  alt="/board2">  
+					</a>
+				</p>
+				<a href="/board2"><strong>다이어트 크림우동</strong></a>
+				<p class="tx_brief">2023-11-15</p>
+			</li>
+			<li>
+				<p class="thmb">
+					<a href="/board2">
+						<img src="image/img2.jpg"  alt="/board2">  
+					</a>
+				</p>
+				<a href="/board2"><strong>맛있는 오트밀 레시피</strong></a>
+				<p class="tx_brief">2023-11-20</p>
+			</li>
+			<li>
+				<p class="thmb">
+					<a href="/board2">
+						<img src="image/img3.jpg"  alt="/board2">  
+					</a>
+				</p>
+				<a href="/board2"><strong>건강한 마제소바</strong></a>
+				<p class="tx_brief">2023-11-23</p>
+			</li>
+			<li>
+				<p class="thmb">
+					<a href="#">
+						<img src="image/img4.jpg"  alt="/board2">  
+					</a>
+				</p>
+				<a href="/board2"><strong>크림카레우동</strong></a>
+				<p class="tx_brief">2023-11-28</p>
+			</li>
+			<li>
+				<p class="thmb">
+					<a href="/board2">
+						<img src="image/img5.jpg"  alt="/board2">  
+					</a>
+				</p>
+				<a href="/board2"><strong>살빠지는 김치우동</strong></a>
+				<p class="tx_brief">2023-11-28</p>
+			</li>
+			<li>
+				<p class="thmb">
+					<a href="/board2">
+						<img src="image/img6.jpg"  alt="/board2">  
+					</a>
+				</p>
+				<a href="/board2"><strong>프로틴 면으로 만든..</strong></a>
+				<p class="tx_brief">2023-11-30</p>
+			</li>
+			<li>
+				<p class="thmb">
+					<a href="/board2">
+						<img src="image/img7.jpg"  alt="/board2">  
+					</a>
+				</p>
+				<a href="/board2"><strong>다이어트 도시락</strong></a>
+				<p class="tx_brief">2023-12-01</p>
+			</li>
+			<li>
+				<p class="thmb">
+					<a href="/board2">
+						<img src="image/img9.jpg"  alt="/board2">  
+					</a>
+				</p>
+				<a href="/board2"><strong>많이먹어도 되는...</strong></a>
+				<p class="tx_brief">2023-12-05</p>
+			</li>
+			</ul>
+				<a href="/board1"><button id="btn" class="btn-two green rounded">더 많은 게시글 보러가기 &#10148;</button></a>
+		</div>
+		<!-- 갤러리끝 -->
+
+    </section>
+    
+  
+    
+    <footer>
+        &copy; ShareCare | 2023 홈페이지 제작 심사용 | 213005 문세희
+    </footer>
+</body>
+<script>
+    // 특정 쿠키가 존재하는지 확인하는 함수
+    function checkCookie(name) {
+        var cookies = document.cookie.split(';');
+        for(var i = 0; i < cookies.length; i++) {
+            var c = cookies[i].trim();
+            if (c.indexOf(name + '=') == 0) return true;
+        }
+        return false;
+    }
+
+    // 페이지 로드 시 실행되는 함수
+    window.onload = function() {
+        var isLoggedIn = checkCookie('loggedIn');
+        var loginNav = document.getElementById('loginNav');
+        var logoutLink = document.getElementById('logoutLink');
+        var section1 = document.querySelector('.section1');
+        var introLink = document.querySelector('nav ul li a[href="/000.introduce/introduce.html"]').parentNode;
+
+        if (isLoggedIn) {
+            // 사용자가 로그인한 경우, 정상적인 내용을 표시
+            logoutLink.addEventListener('click', function() {
+                // 쿠키 삭제
+                document.cookie = 'loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                // index.html로 리다이렉트
+                window.location.href = 'index.html';
+            });
+
+            // "소개" 메뉴 숨기기
+            introLink.style.display = 'none';
+        } else {
+            // 사용자가 로그인하지 않은 경우, "로그인해주세요" 메시지를 표시
+            loginNav.innerHTML = '<a href="login.html">로그인</a>';
+            section1.innerHTML = '<div><h2>로그인하고 오늘 활동을 기록해보세요</h2></div>';
+
+            // "소개" 메뉴 표시
+            introLink.style.display = 'inline';
+        }
+    };
+
+	document.addEventListener('DOMContentLoaded', function() {
+        var logoutLink = document.getElementById('logoutLink');
+        logoutLink.addEventListener('click', function(e) {
+            e.preventDefault(); // 기본 링크 동작 방지
+
+            fetch('/logout', { method: 'POST' }) // POST 요청으로 로그아웃 처리
+                .then(response => {
+                    if (response.ok) {
+                        // 로그아웃 성공 시 홈페이지나 로그인 페이지로 리다이렉트
+                        window.location.href = '/index.html';
+                    } else {
+                        alert('로그아웃 실패');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    });
+	
+</script>
+</html>

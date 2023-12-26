@@ -1,0 +1,367 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MyPage</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script>
+				$(document).ready(function(){
+	
+					$('ul.tabs li').click(function(){
+						var tab_id = $(this).attr('data-tab');
+
+						$('ul.tabs li').removeClass('current');
+						$('.tab-content').removeClass('current');
+
+						$(this).addClass('current');
+						$("#"+tab_id).addClass('current');
+					})
+
+				})  
+			</script>
+	
+	<style>
+		
+		body,html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F6F6F6;
+            min-width:80%;
+			height: 100%;
+			
+        }
+		
+		.login {
+            
+	        height:10px;
+	        margin-top:20px;
+            margin-right: 20%;
+	        float:right;
+        }
+		
+
+		.mypage {
+            width: 80px;
+	        height:10px;
+	        margin-top:20px;
+            margin-right: 25px;
+	        float:right;
+			position:relative;
+        }
+		
+		.logo {
+			float: left;
+			margin-top: 10px;
+			position: absolute;
+			left: 10%;
+		}
+        
+		
+		.container { 
+		width: 1300px;
+		height: 100px;
+		position:absolute;
+		top: 200px;   
+		left: 50%;
+		transform: translate(-50%, -50%);
+			margin: auto;
+		}
+		
+		.line {
+            border-top: 1px solid #5a5a5a;
+            
+			
+        }
+		
+
+        nav ul {
+            font-size: 20px;
+            list-style-type: none;
+            padding: 0;
+			
+        }
+
+        a:link { color: rgb(71, 71, 71); text-decoration: none;}
+        a:hover { color: #20CE88; text-decoration: none;}
+        a:visited { color: rgb(71, 71, 71); text-decoration: none;}
+
+        nav li {
+            display: inline;
+            margin: 0 20px;
+			
+        }
+
+		article {
+			margin : auto;
+    		width: 1000px;
+			height: 560px;
+    		padding: 2rem;
+    		background-color: white;
+    		border-radius: 0.8rem;
+    		box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+			position:absolute;
+			top: 600px;   
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		
+		.profileimg {
+			float: left;
+			display:inline-block;
+			vertical-align:middle;
+			margin-left: 30px;
+		}
+		
+		.profileimg img {
+			width: 100px;
+			
+		}
+		
+		.user {
+			display:inline-block;
+			margin-left: 10px;
+			font-size:18px;
+		}
+		
+		.info {
+			background: #70C189;
+			width: 250px;
+			height: 300px;
+			text-align: center;
+			float: right;
+			margin-top: -32px;
+			margin-right: 50px;
+			border-radius: 5px;
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
+		}
+		
+		.info p {
+			margin-top: 40px;
+			font-size: 22px;
+			font-weight: bold;
+			color:#0B3B32;
+			
+		}
+		
+		.info h4 {
+			font-size: 30px;
+			color: aliceblue;
+			margin-top: 3px;
+		}
+		.info h3 {
+			font-size: 30px;
+			color: aliceblue;
+			margin-top: -20px;
+		}
+		#edit { background: #C1E5DA; margin:5px; padding:15px 30px; color:#051915; !important; display:inline-block;
+			vertical-align:middle; border-radius:20px; !important; cursor:pointer; border:none; font-size: 20px; font-weight: bold;box-shadow: 0px 1px 7px #1C3D32}
+		
+		
+		
+		.write{
+			width: 950px;
+			margin: 0 ;
+			margin-top: 250px;
+			margin-left: 10px;	
+		}
+
+		ul.tabs{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		ul.tabs li{
+			background: none;
+			color: #222;
+			display: inline-block;
+			padding: 10px 15px;
+			cursor: pointer;
+		}
+
+		ul.tabs li.current{
+			background: #ededed;
+			color: #222;
+		}
+
+		.tab-content{
+			display: none;
+			background: #ededed;
+			padding: 15px;
+			font-size: 20px;
+			width: 950px;
+		}
+		
+
+		.tab-content.current{
+			display: inherit;
+		}
+		
+		#tab-1 {
+			position: absolute;
+		}
+		
+		#current_date {
+			margin: auto;
+			width: 100%;
+			text-align: center;
+		}
+		
+		#current_date2 {
+			margin: auto;
+			width: 100%;
+			text-align: center;
+		}
+		
+		input[id="inputactivity"] { width: 60%; padding: 10px 20px; margin: 10px; margin-left: 20px; box-sizing: border-box;  }
+		
+		.submit { margin:5px; padding:7px 13px; color:#fff !important; display:inline-block; background-color:#6b9ab8; 
+				vertical-align:middle; border-radius:0 !important; cursor:pointer; border:none; font-size: 15px;}
+		.submit:hover {background:#86C1D0;}
+		
+		
+		input[id="inputcalorie"] { width: 60%; padding: 10px 20px; margin: 10px; margin-left: 20px; box-sizing: border-box;  }
+		
+
+
+	</style>
+		
+</head>
+
+<body>
+	
+	<header>
+        
+		<nav class="login" id="loginNav">
+        
+        <a href="#" id="logoutLink">로그아웃</a>
+    	</nav>
+		
+       
+        <br>
+
+        <div class="logo">
+            <a href="../001.home/home.html">
+            <img src="../image/logo.png">
+            </a>
+        </div>
+	
+    </header>
+	
+	<div class="container">
+	<div class="line"></div>
+	
+	<nav>
+        <ul>
+            <li><a href="../index.html">홈</a></li>
+            <li><a href="/board">운동</a></li>
+            <li><a href="#">식단</a></li>
+            <li><a href="/MyPage.html">기록</a></li>
+            <li><a href="../008.sharetalk/ShareTalk.html">셰어톡</a></li>
+			<li><a href="/MyPage.html" style="color: #20CE88;">마이페이지</a></li>
+        </ul>
+    </nav>
+	</div>
+	
+	<article>
+		<section class="myinfo">
+			<div class="profileimg">
+				<img src="../image/profile.png"> <!-- 각 항목들 전부 DB에서 가져와야함 -->
+					<span class="user">
+						<h2>닉네임</h2>
+						<p>내가 쓴 글 0  | 내가 쓴 댓글 0 </p>
+					</span>
+				<p><a href="#">내 기록 내역 </a></p>
+			</div>
+			
+			<div class="info">
+				<p>"운동 습관 만들기"</p>
+				<h4>160cm</h4>
+				<h3>50kg</h3>
+				<a href="EditMyinfo.html"><button id="edit">정보 수정</button></a>
+			</div>
+			
+		</section>
+		
+		<!-- 탭 메뉴 -->
+		<section class="write">
+			
+		<ul class="tabs">
+			<li class="tab-link current" data-tab="tab-1">활동 기록</li>
+			<li class="tab-link" data-tab="tab-2">칼로리 기록</li>
+			
+		</ul>
+
+		<div id="tab-1" class="tab-content current">
+			<div id="current_date">
+    			<script>
+        			const options1 = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        			document.getElementById("current_date").innerHTML = new Date().toLocaleDateString('ko-KR', options1);
+					//오늘 날짜 DB로 보내야함
+    			</script>
+				
+			<input type="text" id="inputactivity"> 
+			<button type="submit" class="submit">등록</button>
+			</div>
+			
+			<div class="history">
+			<ul> <!-- DB에서 해당 아이디 유저의 기록 내역 가져옴 -->
+				<li>여기에 지난 기록들 리스트로 보여줌 4줄까지</li>
+				<li>2023년 11월 30일 | 팔굽혀펴기 100회</li>
+				<li>2023년 11월 29일 | 스쿼트 100회</li>
+				<li>2023년 11월 29일 | 스쿼트 100회</li>
+			</ul>
+			</div>
+			
+		</div>
+			
+		<div id="tab-2" class="tab-content current">
+		 	<div id="current_date2">
+    			<script>
+        			const options2 = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        			document.getElementById("current_date2").innerHTML = new Date().toLocaleDateString('ko-KR', options2);
+					//오늘 날짜 DB로 보내야함
+    			</script>
+				
+			<input type="text" id="inputcalorie"> 
+			<button type="submit" class="submit">등록</button>
+			</div>
+			
+			<div class="history">
+				<ul> <!-- DB에서 해당 아이디 유저의 기록 내역 가져옴 -->
+					<li>2023년 12월 4일 월요일 | 아침:사과 1개, 점심:현미밥, 미역국, 저녁:고구마 한개</li>
+					<li>2023년 12월 3일 일요일 | 아침:삶은계란 1개, 점심:메밀국수, 저녁:닭가슴살 100g</li>
+					<li>2023년 12월 2일 토요일 | 아침:그래놀라, 점심:오트밀죽, 저녁:단백질쉐이크</li>
+					<li>2023년 12월 1일 금요일 | 아침:사과 1개, 점심:현미밥, 미역국, 저녁:고구마 한개</li>
+				</ul>
+			</div>
+		</div>
+		
+			
+		</section>
+	</article>
+	
+</body>
+	<script>
+    // 페이지 로드 시 실행되는 함수
+    window.onload = function() {
+        var isLoggedIn = document.cookie.includes('loggedIn');
+        var loginNav = document.getElementById('loginNav');
+        var logoutLink = document.getElementById('logoutLink');
+
+        if (isLoggedIn) {
+            logoutLink.addEventListener('click', function() {
+                // 쿠키 삭제
+                document.cookie = 'loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                // index.html로 리다이렉트
+                window.location.href = 'index.html';
+            });
+        } else {
+            loginNav.innerHTML = '<a href="login.html">로그인</a>';
+        }
+    };
+</script>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareCare</title>
+    <style>
+        body,html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F6F6F6;
+            min-width:80%;
+        }
+
+        .login {
+            
+	        height:10px;
+	        margin-top:20px;
+            margin-right: 3em;
+	        float:right;
+        }
+
+        header {
+            text-align: center;
+            
+            padding-top: 20px;
+            padding-bottom: 5px;
+        }
+
+        .line {
+            border-top: 1px solid #5a5a5a;
+            margin: auto;
+            width: 60rem; 
+        }
+
+        nav {
+           
+            text-align: center;
+            
+        }
+
+        nav ul {
+            font-size: 22px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a:link { color: rgb(71, 71, 71); text-decoration: none;}
+        a:hover { color: #20CE88; text-decoration: none;}
+        a:visited { color: rgb(71, 71, 71); text-decoration: none;}
+
+        nav li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        
+
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .current_date {
+            padding: 20 10;
+            background-color: #FFF8EF;
+            
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        {{#if isAuthenticated}}
+		<nav class="login">
+            <img src="image/profile.png">로그아웃</a>
+        </nav>
+        {{else}}
+		<nav class="login">
+			<a href="login.html">로그인</a>
+		</nav>
+        {{/if}}
+
+        <br>
+
+        <div class="logo">
+            <a href="home.html">
+            <img src="image/logo.png">
+            </a>
+        </div>
+
+        
+    </header>
+    
+    <div class="line"></div>
+
+    <nav>
+        <ul>
+            <li><a href="introduce.html">소개</a></li>
+            <li><a href="#" style="color: #20CE88;">홈</a></li>
+            <li><a href="#">운동</a></li>
+            <li><a href="#">식단</a></li>
+            <li><a href="#">기록</a></li>
+            <li><a href="#">셰어톡</a></li>
+        </ul>
+    </nav>
+    
+    <section>
+        <div id="current_date">
+            <script>
+                date = new Date();
+                year = date.getFullYear();
+                month = date.getMonth() + 1;
+                day = date.getDate();
+                document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
+            </script>
+        </div>
+    </section>
+    
+    <section>
+        <h1>두 번째 섹션</h1>
+        <p>이곳에 내용을 추가하세요.</p>
+    </section>
+    
+    <section>
+        <h1>세 번째 섹션</h1>
+        <p>이곳에 내용을 추가하세요.</p>
+    </section>
+    
+    <footer>
+        &copy; 2023 웹 페이지 이름
+    </footer>
+</body>
+</html>

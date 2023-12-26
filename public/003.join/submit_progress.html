@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	
+<link rel="stylesheet" href="progress_bar.css">
+<script src="button_script.js"></script>
+<link rel="stylesheet" href="./button_style.css">
+	
+<title>submit_progress</title>
+</head>
+	
+	<style>
+		
+	.textbox {
+    margin : auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+    width: 40rem;
+	height: 35rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+    position: relative;
+	
+	display: flex;
+  	justify-content: center;
+ 	 align-items: center;
+  }
+		
+	@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+		
+	.container {
+		
+		margin : auto;
+		
+		text-align: center;
+		display:table-cell;
+  		vertical-align:middle;
+	}
+		
+	.container2 {
+		margin-top: 230px;
+		text-align: center;
+		display:table-cell;
+  		vertical-align:middle;
+		position:absolute;
+		animation: fadein 1s;
+   	 	animation-delay : 5.5s;
+    	animation-fill-mode : backwards;
+	}
+		
+	h2 {
+		font-size: 30px;
+		font-weight: bold;
+		color: #000000;
+	}
+
+		
+	</style>
+
+<body style="background-color: #75cea9;">
+	<article class="textbox">
+	
+	<div class="container">
+	<main class="main">
+  		<div class="button"></div>
+	
+  		<div class="progress-bar"></div>
+	
+  		<svg x="0px" y="0px"
+	 		viewBox="0 0 25 30" style="enable-background:new 0 0 25 30;">
+    		<path class="check" class="st0" d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2"/>
+  		</svg>
+		
+		
+	</main>
+	</div>
+		
+	<div class="container2">
+		<h2> 가입을 환영합니다! </h2>
+		<a href="../login.html" id="btn" class="btn-3d green">로그인 하러가기</a>
+	</div>
+	
+<!-- partial -->
+  	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js'></script>
+	<script  src="progress_bar.js"></script>
+		
+	
+		
+	</article>
+</body>
+</html>

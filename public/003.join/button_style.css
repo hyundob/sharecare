@@ -1,0 +1,179 @@
+
+h2 {
+	color: #89867e;
+	text-align: center;
+	font-weight: 300;
+}
+.color {
+	width: 350px;
+	margin: 0 auto;
+}
+.color li {
+	margin: 0 15px 0 0;
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	border-radius: 100%;
+}
+
+.color .green  {background: #588352;}
+
+
+.content, 
+.content-gradient, 
+.content-3d {
+  margin: 20px auto;
+}
+.content {
+  width: 80%;
+  max-width: 700px;
+}
+.content-3d {
+  width: 50%;
+  max-width: 300px;
+}
+
+
+.btn-container, .container {
+	background-color: white;
+	border-radius: 4px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+.container h2 {
+	padding-top: 30px;
+	font-weight: 300;
+}
+.btn, .btn-two {
+	margin: 9px;
+}
+.btn-gradient {
+	margin: 5px;
+}
+a[class*="btn"] {text-decoration: none;}
+input[class*="btn"], 
+button[class*="btn"] {border: 0;}
+
+/* Here you can change the button sizes */
+.btn.large, 
+.btn-two.large, 
+.btn-effect.large {
+  padding: 10px 40px; 
+  font-size: 22px;
+}
+.btn.small, 
+.btn-two.small, 
+.btn-gradient.small, 
+.btn-effect.small {
+  padding: 8px 18px;  
+  font-size: 14px;
+}
+.btn.mini, 
+.btn-two.mini, 
+.btn-gradient.mini, 
+.btn-effect.mini {
+  padding: 4px 12px;  
+  font-size: 12px;
+}
+.btn.block, 
+.btn-two.block, 
+.btn-gradient.block, 
+.btn-effect.block {
+  display: block;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+
+/* Colors for .btn and .btn-two */
+
+.btn.green, .btn-two.green   {
+	background-color: #588352;
+	cursor:pointer;
+}
+
+
+.rounded {
+  border-radius: 10px;
+}
+
+/* default button style */
+.btn {
+	position: relative;
+	border: 0;
+	padding: 10px 25px;
+	display: inline-block;
+	text-align: center;
+	color: white;
+	cursor:pointer;
+}
+.btn:active {
+	top: 4px;	
+}
+
+/* color classes for .btn */
+
+
+.btn.green {box-shadow: 0px 4px 0px #588352;}
+.btn.green:active {box-shadow: 0 0 #588352; background-color: #588352;}
+
+
+
+/* Button two - I have no creativity for names */
+.btn-two {
+	color: white;	
+	padding: 10px 25px;
+	display: inline-block;
+	border: 1px solid rgba(0,0,0,0.21);
+	border-bottom-color: rgba(0,0,0,0.34);
+	text-shadow:0 1px 0 rgba(0,0,0,0.15);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+				      0 2px 0 -1px rgba(0,0,0,0.13), 
+				      0 3px 0 -1px rgba(0,0,0,0.08), 
+				      0 3px 13px -1px rgba(0,0,0,0.21);
+}
+.btn-two:active {
+	top: 1px;
+	border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+	box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+	position: relative;
+}
+
+/* 3D Button */
+.btn-3d {
+	position: relative;
+	display: inline-block;
+	font-size: 13px;
+	padding: 8px 23px;
+	color: white;
+	margin: -5px 10px 10px;
+	border-radius: 8px;
+	text-align: center;
+	transition: top .01s linear;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+	cursor:pointer;
+}
+
+.btn-3d.green:hover  {background-color: #80C49D;}
+
+
+.btn-3d:active {
+	top: 9px;
+}
+/* 3D button colors */
+
+.btn-3d.green {
+	background-color: #82c8a0;
+	box-shadow: 0 0 0 1px #82c8a0 inset,
+				0 0 0 2px rgba(255,255,255,0.15) inset,
+				0 8px 0 0 rgba(126, 194, 155, .7),
+				0 8px 0 1px rgba(0,0,0,.4),
+				0 8px 8px 1px rgba(0,0,0,0.5);
+}
+.btn-3d.green:active {
+	box-shadow: 0 0 0 1px #82c8a0 inset,
+				0 0 0 2px rgba(255,255,255,0.15) inset,
+				0 0 0 1px rgba(0,0,0,0.4);
+}

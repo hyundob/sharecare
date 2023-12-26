@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareCare</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body,html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F6F6F6;
+            min-width:80%;
+        }
+
+        .login {
+            
+	        height:10px;
+	        margin-top:20px;
+            margin-right: 3em;
+	        float:right;
+        }
+
+        header {
+            text-align: center;
+            
+            padding-top: 20px;
+            padding-bottom: 5px;
+        }
+
+        .line {
+            border-top: 1px solid #5a5a5a;
+            margin: auto;
+            width: 60rem; 
+        }
+
+        nav {
+           
+            text-align: center;
+            
+        }
+
+        nav ul {
+            font-size: 22px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a:link { color: rgb(71, 71, 71); text-decoration: none;}
+        a:hover { color: #20CE88; text-decoration: none;}
+        a:visited { color: rgb(71, 71, 71); text-decoration: none;}
+
+        nav li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        
+
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .current_date {
+            padding: 20 10;
+            background-color: #FFF8EF;
+            
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="login" id="loginNav">
+        
+        <a href="#" id="logoutLink">로그아웃</a>
+    </nav>
+
+    <br>
+
+    <div class="logo">
+        <a href="index.html">
+        <img src="image/logo.png">
+        </a>
+    </div>
+
+        
+    </header>
+    
+    <div class="line"></div>
+
+    <nav>
+        <ul>
+            <li><a href="/000.introduce/introduce.html">소개</a></li>
+            <li><a href="../index.html" style="color: #20CE88;">홈</a></li>
+            <li><a href="/board1">운동</a></li>
+            <li><a href="#">식단</a></li>
+            <li><a href="#">기록</a></li>
+            <li><a href="#">셰어톡</a></li>
+        </ul>
+    </nav>
+    
+    <section>
+        <div id="current_date">
+            <script>
+                date = new Date();
+                year = date.getFullYear();
+                month = date.getMonth() + 1;
+                day = date.getDate();
+                document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
+            </script>
+        </div>
+    </section>
+    
+    <section>
+        <div>
+            <label for="title">제목:</label>
+            <input type="text" id="title" name="title" required><br>
+          
+            <label for="content">내용:</label><br>
+            <textarea id="content" name="content" rows="4" cols="50" required></textarea><br>
+
+            <label for="photo1">이미지 첨부 1:</label>
+            <input type="file" id="photo1" name="photo1" accept="image/*"><br>
+        
+            <label for="photo2">이미지 첨부 2:</label>
+            <input type="file" id="photo2" name="photo2" accept="image/*"><br>
+        
+            <label for="photo3">이미지 첨부 3:</label>
+            <input type="file" id="photo3" name="photo3" accept="image/*"><br>
+          
+            <input type="button" value="작성" id="submitButton">
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const submitButton = document.getElementById('submitButton');
+
+        submitButton.addEventListener('click', function () {
+        const title = document.getElementById('title').value;
+        const content = document.getElementById('content').value;
+        const imageInput1 = document.getElementById('photo1');
+        const imageInput2 = document.getElementById('photo2');
+        const imageInput3 = document.getElementById('photo3');
+
+        const imageFile1 = imageInput1.files[0]; // 선택한 이미지 파일 가져오기
+        const imageFile2 = imageInput2.files[0];
+        const imageFile3 = imageInput3.files[0];
+
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('content', content);
+
+        // 이미지 파일 추가
+        if (imageFile1) {
+            formData.append('photo1', imageFile1);
+        }
+        if (imageFile2) {
+            formData.append('photo2', imageFile2);
+        }
+        if (imageFile3) {
+            formData.append('photo3', imageFile3);
+        }
+
+        // 작성한 데이터를 서버로 전송
+        fetch('/api/edit_post', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => response.json())
+            .then(data => {
+            if (data.success) {
+                // 작성 성공 시, 작성한 글로 이동 또는 어떤 작업을 수행할 수 있습니다.
+                window.location.href = '/board1'; // 작성한 글로 이동하는 예시
+            } else {
+                alert('글 작성에 실패했습니다.');
+            }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+
+      </script>
+    
+    <section>
+        <h1>세 번째 섹션</h1>
+        <p>이곳에 내용을 추가하세요.</p>
+    </section>
+    
+    <footer>
+        &copy; 2023 웹 페이지 이름
+    </footer>
+</body>
+<script>
+    // 페이지 로드 시 실행되는 함수
+    window.onload = function() {
+        var isLoggedIn = document.cookie.includes('loggedIn');
+        var loginNav = document.getElementById('loginNav');
+        var logoutLink = document.getElementById('logoutLink');
+
+        if (isLoggedIn) {
+            logoutLink.addEventListener('click', function() {
+                // 쿠키 삭제
+                document.cookie = 'loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                // index.html로 리다이렉트
+                window.location.href = 'index.html';
+            });
+        } else {
+            loginNav.innerHTML = '<a href="login.html">로그인</a>';
+        }
+    };
+</script>
+</html>

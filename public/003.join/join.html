@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="bmi.js"></script>
+  <link rel="stylesheet" href="./button_style.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sail&display=swap" rel="stylesheet">
+  <script src="button_script.js"></script>
+  <link rel="stylesheet" href="submit_style.css?문자열"><link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
+  
+</head>
+<style>
+	
+	body {
+		height: 1300px;
+	}
+
+  @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 80%, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+  }
+
+  .logo {
+    text-align: center;
+    color: #aeecc2;
+    font-size: 110px;
+    font-family: Sail;
+    line-height: 70%;
+    margin-top: 5rem;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 1s;
+  }
+  
+  .textbox {
+    margin : auto;
+    width: 50rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+    animation: fadeInUp 1s;
+  }
+
+  @keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+
+  .introduce {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 10rem;
+    animation: fadeInUp 2s;
+  }
+
+  .container {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    animation: fadein 2s;
+    animation-delay : 1.5s;
+    animation-fill-mode : backwards;
+  }
+
+  h1 {
+    font-size: 35px;
+	 margin-top: -50px;
+  }
+
+  .account {
+    margin-top: 20px;
+	margin-bottom: -10px;  
+	}
+
+  input[type="text"] { width: 30%; padding: 10px 20px; margin: 5px 0; box-sizing: border-box;}
+
+  label { 
+    text-align: left;
+    margin-left: -11rem;
+    width:80px;
+  }
+	
+	h2 {
+		font-size: 30px;
+		font-weight: bold;
+	}
+	
+	.alse { margin-bottom: -90px}
+	
+	input[id="inputnickname"] { margin-bottom: 40px}
+  
+	
+ 
+
+</style>
+
+<body style="background-color: #75cea9;">
+  <div class="logo">
+     ShareCare 
+  </div>
+  <article class="textbox">
+	 
+ <form action="/join" method="post" name="comma">
+
+    <div class="introduce">
+      <h2>셰어케어에 오신 것을 환영합니다!</h2>
+      <p class="alse">케어를 시작하기 전 기본적인 정보를 입력해 주세요.</p>
+    </div>
+
+    <div class="container">
+      <h1>현재 신장과 체중을 알려주세요</h1>
+      
+
+      <label for="inputHeight"> 현재 키 </label>
+      <br>
+      <input type="text" placeholder="160cm" id="height" name="height" required>
+      <br>
+      <label for="inputWeight"> 현재 몸무게 </label>
+      <br>
+      <input type="text" placeholder="50.0kg" id="weight" name="weight" required>
+      <br>
+      
+      <p class="account">체질량지수는 자신의 몸무게(kg)를 키의 제곱(m)으로 나눈 값입니다.<br>기계를 이용해 직접적으로 체지방을 측정한 것이 아니니 엄밀하지 않습니다.</p>
+      
+      <br><button id="btn" class="btn-two green rounded" >계산하기</button>
+      <div id="result"></div>
+   </div>
+
+  	<div class="container">
+    	<h1>케어 목적을 선택해주세요</h1>
+        	<input type="radio" name="chk_info" value="1" checked>건강한 식습관
+        	<input type="radio" name="chk_info" value="2">체중 감량
+        	<input type="radio" name="chk_info" value="3">체중 증가
+        	<input type="radio" name="chk_info" value="4">운동 습관 만들기
+  	</div>
+
+    <div class="container">
+      <h1>회원 닉네임을 입력해주세요</h1>
+        <input id="inputnickname" type="text" name="unickname" required >
+
+        <button class="button">
+        	<div type="submit" class="text">Submit</div>
+      	</button>
+	</div>
+ </form>
+
+
+</article>
+</body>
+
+</html>

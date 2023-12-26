@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MyPage</title>
+	
+	
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+		
+        body,html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F6F6F6;
+            min-width:80%;
+			height: 100%;
+			
+        }
+		
+		.login {
+            
+	        height:10px;
+	        margin-top:20px;
+            margin-right: 20%;
+	        float:right;
+        }
+		
+
+		.mypage {
+            width: 80px;
+	        height:10px;
+	        margin-top:20px;
+            margin-right: 25px;
+	        float:right;
+			position:relative;
+        }
+		
+		.logo {
+			float: left;
+			margin-top: 10px;
+			position: absolute;
+			left: 10%;
+		}
+		
+		.container { 
+		width: 1300px;
+		height: 100px;
+		position:absolute;
+		top: 200px;   
+		left: 50%;
+		transform: translate(-50%, -50%);
+		margin: auto;
+		}
+		
+		.line {
+            border-top: 1px solid #5a5a5a;
+        }
+		
+
+        nav ul {
+            font-size: 20px;
+            list-style-type: none;
+            padding: 0;
+			
+        }
+
+        a:link { color: rgb(71, 71, 71); text-decoration: none;}
+        a:hover { color: #20CE88; text-decoration: none;}
+        a:visited { color: rgb(71, 71, 71); text-decoration: none;}
+
+        nav li {
+            display: inline;
+            margin: 0 20px;
+			
+        }
+
+		article {
+			margin : auto;
+    		width: 1000px;
+			height: 650px;
+    		padding: 2rem;
+    		background-color: white;
+    		border-radius: 0.8rem;
+    		box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 15px;
+			position:absolute;
+			top: 600px;   
+			left: 50%;
+			transform: translate(-50%, -50%);
+			margin-bottom: 300px;
+		}
+		
+		.title { margin-top: -15px; margin-left: 20px; font-size: 20px;}
+		
+		.form { width: 500px;}
+		.editjoin { width: 500px; }
+
+		.two { display: flex; align-items: center;}
+		
+		#line { border-top: 1px solid #5a5a5a; border-width: medium; margin-bottom: 50px;  }
+		
+		label { 
+			display:inline-block;
+			padding:10px 15px; 
+			width: 130px;
+			margin-bottom: 30px;
+		}
+		
+		input {  
+			width: 60%;
+    		height: 46px;
+    		padding: 0px 11px 1px 15px;
+    		border-radius: 5px;
+    		border: 1px solid rgb(221, 221, 221);
+			background:#E5E5E5;
+    		font-weight: 400;
+    		font-size: 16px;
+    		line-height: 1.5;
+    		color: rgb(51, 51, 51);
+    		outline: none;
+    		box-sizing: border-box;
+		}
+		
+		input:focus {
+    		border: 0.125rem solid #5FA67F;
+		}
+		
+		input[type="radio"] {
+			width: 30px;
+		}
+		
+		.rdbutton {
+			width: 250px;
+			text-align: left;
+			margin-left: 100px;
+			margin-top: -50px
+		}
+		
+		.rdlabel {
+			width: 170px;
+			height: 20px;
+		}
+		
+		.rdtitle { margin-left: 20px;}
+
+		.buttons {
+			width: 100%;
+			margin: auto;
+			text-align: center;
+		}
+		button {
+    		cursor: pointer;
+    		width: 15%;
+    		padding: .6rem 0;
+    		margin-top: 50px;
+    		border-radius: .5rem;
+    		border: none;
+    		background-color:#45A77B;
+    		color:#FFFFFF;
+    		font-size: 1.2rem;
+    		outline: none;
+		}
+		
+	</style>
+		
+</head>
+
+<body>
+	
+	<header>
+        
+		<nav class="login" id="loginNav">
+       
+        <a href="#" id="logoutLink">로그아웃</a>
+    	</nav>
+		
+       
+        <br>
+
+        <div class="logo">
+            <a href="/index.html">
+            <img src="../image/logo.png">
+            </a>
+        </div>
+	
+    </header>
+	
+	<div class="container">
+	<div class="line"></div>
+	
+	<nav>
+        <ul>
+            <li><a href="/index.html">홈</a></li>
+            <li><a href="/board1">운동</a></li>
+            <li><a href="/board1">식단</a></li>
+            <li><a href="/mypage">기록</a></li>
+            <li><a href="/008.sharetalk/ShareTalk.html">셰어톡</a></li>
+			<li><a href="/mypage" style="color: #20CE88;">마이페이지</a></li>
+        </ul>
+    </nav>
+	</div>
+	
+	<article>
+		<section class="myinfo">
+			<div class="title"><h2>개인 정보 수정</h2></div>
+			<div id="line"></div>
+			
+		<div class="two">
+			
+			<div class="form">
+				<div class="input-group">
+					<i class="bx bxs-user"></i>
+					<label>아이디</label><input type='text' id="inputID" placeholder="ID" name='uid' required>
+				</div>
+						
+				<div class="input-group">
+					<i class='bx bxs-lock-alt'></i>
+					<label>새 비밀번호</label><input type="password" id="upass" placeholder="새 비밀번호를 입력해 주세요" name='upass' required>
+				</div>
+				<div class="input-group">
+					<i class='bx bxs-lock-alt'></i>
+					<label>새 비밀번호 확인</label><input type="password" id="upass_confirm" placeholder="새 비밀번호를 다시 입력해 주세요" name='upass_confirm' required>
+				</div>
+				<div class="input-group">
+					<i class='bx bx-mail-send'></i>
+					<label>이메일</label><input type="text" id="inputEmail" placeholder="Email" name='email' required>
+				</div>
+				<div class="input-group">
+					<i class='bx bxs-lock-alt'></i>
+					<label>이름</label><input type="text" id="inputName" placeholder="Name" name='uname' required>
+				</div>
+				<div class="input-group">
+					<i class='bx bxs-lock-alt'></i>
+					<label>휴대폰</label><input type="text" id="inputPhone" placeholder="Phone number" name='mphone' required>
+				</div>
+			</div>
+			
+			<div class="editjoin">
+				<div class="input_group">
+					<label for="inputHeight"> 현재 키 </label><input type="text" placeholder="160cm" id="height" name="height" required>
+				</div>
+				<div class="input_group">
+					<label for="inputWeight"> 현재 몸무게 </label><input type="text" placeholder="50.0kg" id="weight" name="weight" required>
+				</div>
+				<div class="rdtitle">
+				<h4>케어목적</h4>
+				</div>
+				<div class="rdbutton">
+					<label class="rdlabel"><input type="radio" name="chk_info" value="1" checked><span>건강한 식습관</span></label>
+        			<label class="rdlabel"><input type="radio" name="chk_info" value="2"><span>체중 감량</span></label>
+        			<label class="rdlabel"><input type="radio" name="chk_info" value="3"><span>체중 증가</span></label>
+        			<label class="rdlabel"><input type="radio" name="chk_info" value="4"><span>운동 습관 만들기</span></label>
+				</div>
+			</div>
+		</div>
+			
+		<div class="buttons">
+			<button>회원정보수정</button>	
+		</div>
+			
+		</section>
+<body>
+</body>
+		<script>
+    // 페이지 로드 시 실행되는 함수
+    window.onload = function() {
+        var isLoggedIn = document.cookie.includes('loggedIn');
+        var loginNav = document.getElementById('loginNav');
+        var logoutLink = document.getElementById('logoutLink');
+
+        if (isLoggedIn) {
+            logoutLink.addEventListener('click', function() {
+                // 쿠키 삭제
+                document.cookie = 'loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                // index.html로 리다이렉트
+                window.location.href = 'index.html';
+            });
+        } else {
+            loginNav.innerHTML = '<a href="login.html">로그인</a>';
+        }
+    };
+</script>
+</html>

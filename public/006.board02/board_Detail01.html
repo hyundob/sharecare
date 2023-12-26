@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareCare</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        }
+        body,html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F6F6F6;
+            min-width:80%;
+        }
+
+        .login {
+	        height:10px;
+	        margin-top:20px;
+            margin-right: 20%;
+	        float:right;
+        }
+		
+		.logo {
+			margin-top: 30px;
+		}
+
+        header {
+            text-align: center;
+            
+            padding-top: 20px;
+            padding-bottom: 5px;
+        }
+
+        .line {
+            border-top: 1px solid #5a5a5a;
+            margin: auto;
+            width: 60rem; 
+        }
+
+        nav {
+           
+            text-align: center;
+            
+        }
+
+        nav ul {
+            font-size: 22px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a:link { color: rgb(71, 71, 71); text-decoration: none;}
+        a:hover { color: #20CE88; text-decoration: none;}
+        a:visited {  text-decoration: none;}
+
+        nav li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        
+
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .current_date {
+            padding: 20 10;
+            background-color: #FFF8EF;
+            
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+		
+		.com{
+			width: 900px;
+			margin: auto;
+		}
+
+        ul,
+        li {
+        list-style: none;
+        }
+
+        .comment {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding: 30px;
+        width: 900px;
+        margin: 0 auto;
+        }
+
+        .comment > li {
+        margin-top: 20px;
+        }
+        .comment > li:nth-child(1) {
+        margin: 0px;
+        }
+
+        .comment-row {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        }
+
+        .comment-row {
+        margin-top: 20px;
+        width: 100%;
+        }
+
+        .comment-row > li:nth-child(2) {
+        flex-shrink: 0;
+        flex-grow: 1;
+        padding-left: 25px;
+        z-index: 1;
+        width: 100%;
+        }
+
+        .comment-row > li:nth-child(2) {
+        width: 85px;
+        }
+
+        .comment-form > form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        }
+
+        .comment-form > form > h4 {
+        width: 100%;
+        margin: 14px 0 14px 0;
+        }
+
+        .comment-content {
+        cursor: pointer;
+        word-break: break-all;
+        padding-right: 25px;
+        }
+
+        .ps_box {
+        display: block;
+        position: relative;
+        width: 80%;
+        height: 51px;
+        border: solid 1px #dadada;
+        padding: 10px 14px 10px 14px;
+        background: #fff;
+        box-sizing: border-box;
+        }
+
+        .ps_box > input {
+        outline: none;
+        }
+
+        .int {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 29px;
+        padding-right: 25px;
+        line-height: 29px;
+        border: none;
+        background: #fff;
+        font-size: 15px;
+        box-sizing: border-box;
+        z-index: 10;
+        }
+
+        .btn {
+        width: 15%;
+        padding: 10px 18px;
+        text-align: center;
+        box-sizing: border-box;
+        text-decoration: none;
+        border: none;
+        background:#B7AA9B;
+        color: #fff;
+        font-size: 20px;
+            cursor:pointer;
+        }
+
+        .comment-delete-btn {
+        display: inline-block;
+        margin-left: 7px;
+        cursor: pointer;
+        }
+
+        .comment-update-input {
+        border: none;
+        border-bottom: 1px solid #333;
+        font-size: 16px;
+        color: #666;
+        outline: none;
+        }
+    </style>
+</head>
+<body>
+	<header>
+    	<nav class="login" id="loginNav">
+        	
+        	<a href="#" id="logoutLink">로그아웃</a>
+    	</nav>
+
+    	<br>
+
+    	<div class="logo">
+        	<a href="/index.html">
+        	<img src="image/logo.png">
+        	</a>
+    	</div>
+ 
+    </header>
+    
+    <div class="line"></div>
+
+    <nav>
+        <ul>
+            <li><a href="/000.introduce/introduce.html">소개</a></li>
+            <li><a href="/index.html" >홈</a></li>
+            <li><a href="/board1">운동</a></li>
+            <li><a href="/board2" style="color: #20CE88;">식단</a></li>
+            <li><a href="/mypage">기록</a></li>
+            <li><a href="/008.sharetalk/ShareTalk.html">셰어톡</a></li>
+        </ul>
+    </nav>
+    
+    <!--<section>
+        <div id="current_date">
+            <script>
+                date = new Date();
+                year = date.getFullYear();
+                month = date.getMonth() + 1;
+                day = date.getDate();
+                document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
+            </script>
+        </div>
+    </section>-->
+    
+    <section>
+        <h2>게시글 정보</h2>
+		<table class="board_detail">
+				<colgroup>
+					<col width="15%"/>
+					<col width="35%"/>
+					<col width="15%"/>
+					<col width="35%"/>
+				</colgroup>
+				<caption>게시글 상세내용</caption>
+				<tbody>
+					<tr>
+        				<th scope="row">글 번호</th> <td><span id="postBoardId"></span></td>
+						<th scope="row">조회수</th> <td><span id="postReadCount"></span></td>
+					</tr>
+					<tr>
+        				<th scope="row">작성자</th> <td><span id="postWriter"></span></td>
+						<th scope="row">작성일</th> <td><span id="postRegdate"></span></td>
+					</tr>
+					<tr>
+        				<th scope="row">제목</th> <td colspan="3" id="title"><span id="postTitle"></span></td>
+					</tr>
+					<tr>
+        				<th scope="row">내용</th> <td colspan="3" id="content"><span id="postContent"></span></td>
+					</tr>
+				</tbody>
+		</table>
+        <!-- 수정 버튼 -->
+        <button id="editButton">수정</button>
+        
+        <!-- 삭제 버튼 -->
+        <button id="deleteButton">삭제</button>
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // 현재 URL에서 게시물 ID를 가져오기
+            const urlParams = new URLSearchParams(window.location.search);
+            const boardId = urlParams.get('board_id');
+                    // 삭제 버튼 클릭 이벤트 처리
+                    document.getElementById('deleteButton').addEventListener('click', () => {
+                        // 서버로 삭제 요청 보내기
+                        if(confirm('해당 게시글을 삭제하시겠습니까?')) {
+                            fetch(`/delete-post2/${boardId}`, { method: 'DELETE' })
+                            .then(response => {
+                                if (response.ok) {
+                                    alert('게시글 삭제가 완료되었습니다.');
+                                    // 페이지 새로고침 또는 목록 업데이트
+                                    window.location.href = '/board1';
+                                } else {
+                                    alert('오류가 발생했습니다.');
+                                }
+                            })
+                            .catch(error => console.error('Error:', error));
+                        }
+                    });
+            // 서버로부터 해당 게시글의 데이터 가져오기
+            fetch(`/api/get_post2?id=${boardId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('postBoardId').textContent = data.board_id;
+                    document.getElementById('postWriter').textContent = data.writer;
+                    document.getElementById('postTitle').textContent = data.title;
+                    document.getElementById('postContent').innerHTML = data.content; // HTML로 가정
+                    document.getElementById('postRegdate').textContent = new Date(data.regdate).toLocaleDateString();
+                    document.getElementById('postReadCount').textContent = data.read_count;
+
+                    // 상세 정보 섹션을 보이게 설정
+                    document.getElementById('postDetail').style.display = 'block';
+
+                })
+                .catch(error => console.error('Error:', error));
+            
+            fetch(`/api/validate-user2/${boardId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.isValidUser) {
+                        // 현재 사용자가 게시글 작성자와 일치하면 삭제 버튼 표시
+                        document.getElementById('deleteButton').style.display = 'inline';
+                    } else {
+                        // 일치하지 않으면 삭제 버튼 숨기기
+                        document.getElementById('deleteButton').style.display = 'none';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        </script>
+    </section>
+    
+    <section class="com">
+        <div>
+            <ul class="comment">
+                <li class="comment-form">
+                    <form id="commentFrm">
+                        <h4>댓글쓰기 <span></span></h4>
+                        <span class="ps_box">
+                            <textarea id="commentContent" class="int" placeholder="댓글을 입력하세요"></textarea>
+                        </span>
+                        <button class="btn" id="submitComment">등록</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div id="commentsSection">
+
+        </div>
+    </section>
+    
+    <footer>
+        &copy; 213005 문세희 | 2023 3학년 홈페이지 제작 능력 심사 | ShareCare 
+    </footer>
+</body>
+<script>
+    function checkCookie(name) {
+        var cookies = document.cookie.split(';');
+        for(var i = 0; i < cookies.length; i++) {
+            var c = cookies[i].trim();
+            if (c.indexOf(name + '=') == 0) return true;
+        }
+        return false;
+    }
+
+    // 페이지 로드 시 실행되는 함수
+    window.onload = function() {
+        var isLoggedIn = checkCookie('loggedIn');
+        var loginNav = document.getElementById('loginNav');
+        var logoutLink = document.getElementById('logoutLink');
+        var section1 = document.querySelector('.section1');
+
+        if (isLoggedIn) {
+            // 사용자가 로그인한 경우, 정상적인 내용을 표시
+            logoutLink.addEventListener('click', function() {
+                // 쿠키 삭제
+                document.cookie = 'loggedIn=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                // index.html로 리다이렉트
+                window.location.href = 'index.html';
+            });
+
+            // "소개" 메뉴 숨기기
+        } else {
+            // 사용자가 로그인하지 않은 경우, "로그인해주세요" 메시지를 표시
+            loginNav.innerHTML = '<a href="login.html">로그인</a>';
+            section1.innerHTML = '<div><h2>로그인하고 오늘 활동을 기록해보세요</h2></div>';
+
+            // "소개" 메뉴 표시
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const submitCommentBtn = document.getElementById('submitComment');
+        const commentContent = document.getElementById('commentContent');
+
+        submitCommentBtn.addEventListener('click', function() {
+            const content = commentContent.value;
+            const boardId = new URLSearchParams(window.location.search).get('board_id');
+            
+            fetch('/api/add-comment2', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ boardId: boardId, content: content })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('댓글이 등록되었습니다.');
+                    // 댓글 목록 새로고침
+                    location.reload(true);
+                } else {
+                    alert('댓글 등록 실패');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('로그인이 안되어 있습니다. 로그인 해주십시오.');
+            });
+        });
+
+        // 댓글 목록 로드 함수
+        function loadComments() {
+        const boardId = new URLSearchParams(window.location.search).get('board_id');
+        fetch(`/api/get-comments2/${boardId}`)
+            .then(response => response.json())
+            .then(comments => {
+                const commentsSection = document.getElementById('commentsSection');
+                commentsSection.innerHTML = ''; // 기존 댓글 목록 제거
+
+                // 댓글 목록 순회하며 화면에 표시
+                comments.forEach(comment => {
+                    const commentElement = document.createElement('ul');
+                    commentElement.classList.add('comment-row');
+                    commentElement.innerHTML = `
+                        <li class="comment-id">${comment.unickname}</li> <li class="comment-content">${comment.content}</li>
+                        <li class="comment-data">(${new Date(comment.regdate).toLocaleString()})</li>
+                    `;
+                    commentsSection.appendChild(commentElement);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // 페이지 로드 시 댓글 목록 로드
+        loadComments();
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var logoutLink = document.getElementById('logoutLink');
+        logoutLink.addEventListener('click', function(e) {
+            e.preventDefault(); // 기본 링크 동작 방지
+
+            fetch('/logout', { method: 'POST' }) // POST 요청으로 로그아웃 처리
+                .then(response => {
+                    if (response.ok) {
+                        // 로그아웃 성공 시 홈페이지나 로그인 페이지로 리다이렉트
+                        window.location.href = '/index.html';
+                    } else {
+                        alert('로그아웃 실패');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    });
+</script>
+</html>

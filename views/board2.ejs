@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareCare</title>
+    <style>
+        body,html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F6F6F6;
+            min-width:80%;
+        }
+
+        .login {
+	        height:10px;
+	        margin-top:20px;
+            margin-right: 20%;
+	        float:right;
+        }
+		
+		.logo {
+			margin-top: 30px;
+		}
+
+        header {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 5px;
+        }
+
+        .line {
+            border-top: 1px solid #5a5a5a;
+            margin: auto;
+            width: 60rem; 
+        }
+
+        nav {
+           
+            text-align: center;
+            
+        }
+
+        nav ul {
+            font-size: 22px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        a:link { color: rgb(71, 71, 71); text-decoration: none;}
+        a:visited { color: rgb(71, 71, 71); text-decoration: none;}
+		a:hover { color: #20CE88; text-decoration: none;}
+
+        nav li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        
+
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .current_date {
+            padding: 20 10;
+            background-color: #FFF8EF;
+            
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+		
+        /* 게시판 리스트 */
+        /* 게시판 목록 스타일 */
+        body{
+        line-height:2em;        
+        font-family:"맑은 고딕";
+        }
+            ul, li{ 
+                list-style:none;
+                text-align:center;
+                padding:0;
+                margin:0;
+        }
+
+            #mainWrapper{
+                width: 800px;
+                margin: 0 auto; /*가운데 정렬*/
+            }
+
+            #mainWrapper > ul > li:first-child {
+                text-align: center;
+                font-size:14pt;
+                height:40px;
+                vertical-align:middle;
+                line-height:30px;
+        }
+
+            #ulTable {margin-top:10px;}
+            
+
+            #ulTable > li:first-child > ul > li {
+                background-color:#c9c9c9;
+                font-weight:bold;
+                text-align:center;
+        }
+
+            #ulTable > li > ul {
+                clear:both;
+                padding:0px auto;
+                position:relative;
+                min-width:40px;
+        }
+            #ulTable > li > ul > li { 
+                float:left;
+                font-size:10pt;
+                border-bottom:1px solid silver;
+                vertical-align:baseline;
+        }    
+
+            #ulTable > li > ul > li:first-child               {width:10%;} /*No 열 크기*/
+            #ulTable > li > ul > li:first-child +li           {width:45%;} /*제목 열 크기*/
+            #ulTable > li > ul > li:first-child +li+li        {width:20%;} /*작성일 열 크기*/
+            #ulTable > li > ul > li:first-child +li+li+li     {width:15%;} /*작성자 열 크기*/
+            #ulTable > li > ul > li:first-child +li+li+li+li{width:10%;} /*조회수 열 크기*/
+            #ulTable {margin-top:10px;}
+            
+
+            #searchResults > li:first-child > ul > li {
+                background-color:#c9c9c9;
+                font-weight:bold;
+                text-align:center;
+        }
+
+            #searchResults > li > ul {
+                clear:both;
+                padding:0px auto;
+                position:relative;
+                min-width:40px;
+        }
+            #searchResults > li > ul > li { 
+                float:left;
+                font-size:10pt;
+                border-bottom:1px solid silver;
+                vertical-align:baseline;
+        }    
+
+            #searchResults > li > ul > li:first-child               {width:10%;} /*No 열 크기*/
+            #searchResults > li > ul > li:first-child +li           {width:45%;} /*제목 열 크기*/
+            #searchResults > li > ul > li:first-child +li+li        {width:20%;} /*작성일 열 크기*/
+            #searchResults > li > ul > li:first-child +li+li+li     {width:15%;} /*작성자 열 크기*/
+            #searchResults > li > ul > li:first-child +li+li+li+li{width:10%;} /*조회수 열 크기*/
+
+            #divPaging {
+                clear:both; 
+                margin:0 auto; 
+                width:220px; 
+                height:50px;
+        }
+
+            #divPaging > div {
+                float:left;
+                width: 30px;
+                margin:0 auto;
+                text-align:center;
+        }
+
+            #liSearchOption {clear:both;}
+            #liSearchOption > div {
+                margin:0 auto; 
+                margin-top: 30px; 
+                width:auto; 
+                height:100px;
+
+        }
+
+            .left {
+                text-align : left;
+        }
+        #writeButton {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<header>
+	
+    <nav class="login" id="loginNav">
+        
+        <a href="#" id="logoutLink">로그아웃</a>
+    </nav>
+
+    <br>
+
+    <div class="logo">
+        <a href="/index.html">
+        <img src="image/logo.png">
+        </a>
+    </div>
+        
+</header>
+    
+    <div class="line"></div>
+
+    <nav>
+        <ul>
+            <li><a href="/000.introduce/introduce.html">소개</a></li>
+            <li><a href="../index.html" >홈</a></li>
+            <li><a href="/board1" >운동</a></li>
+            <li><a href="/board2" style="color: #20CE88;">식단</a></li>
+            <li><a href="/mypage">기록</a></li>
+            <li><a href="/008.sharetalk/ShareTalk.html">셰어톡</a></li>
+        </ul>
+    </nav>
+    
+    <section>
+        <div id="current_date">
+            <script>
+                date = new Date();
+                year = date.getFullYear();
+                month = date.getMonth() + 1;
+                day = date.getDate();
+                document.getElementById("current_date").innerHTML = year + "/" + month + "/" + day;
+            </script>
+        </div>
+    </section>
+    
+    <div id="mainWrapper">
+        <ul>
+			<!-- 게시판 제목 -->
+			<li><h1>게시판 리스트</h1></li>
+				
+				<!-- 게시판 목록 -->
+			<li>
+                
+                <ul id="searchResults"></ul>
+				<ul id="ulTable">
+					<li>
+						<ul>
+                    		<li><strong>번호</strong></li>
+                    		<li><strong>제목</strong></li> 
+                            <li><strong>작성일</strong></li>
+                    		<li><strong>작성자</strong> </li>
+                    		<li><strong>조회수</strong></li>
+                        </ul>
+					</li>
+                
+ 					<!-- 게시물 출력 -->
+					<% for (let post of boardList) { %>
+                	<li class="board-list-item" data-board-id="<%= post.board_id %>">
+						<ul>
+                    		<li><a href="/006.board02/board_Detail01.html?board_id=<%= post.board_id %>"><%= post.board_id %></a></li>
+                    		<li class="left"><a href="/006.board02/board_Detail01.html?board_id=<%= post.board_id %>"><%= post.title %></a></li>
+                            <li><a href="/006.board02/board_Detail01.html?board_id=<%= post.board_id %>"><%= new Date(post.regdate).toLocaleDateString() %></a></li> 
+                    		<li><a href="/006.board02/board_Detail01.html?board_id=<%= post.board_id %>"><%= post.writer %></a></li>
+                    		<li class="read-count"><a href="/006.board021/board_Detail01.html?board_id=<%= post.board_id %>"><%= post.read_count %></a></li>
+						</ul>
+                	</li>
+            		<% } %>
+				</ul>
+			</li>
+            <div id="writeButton">
+                <input type='button' value='작성' id='writeButtonElement'/>
+              </div>
+            <li>
+                <div id="divPaging">
+                    <a href="/board2?page=1">◀</a>
+                    <% for (let i = 1; i <= totalPages; i++) { %>
+                    <a href="/board2?page=<%= i %>"><%= i %></a>
+                    <% } %>
+                    <a href="/board2?page=<%= totalPages %>">▶</a>
+                </div>
+            </li>
+            <li id='liSearchOption'>
+                <div>
+                    <section>
+                        <form id="searchForm">
+                            <select id="searchOption">
+                                <option value="all">제목+내용</option>
+                                <option value="title">제목</option>
+                                <option value="content">내용</option>
+                            </select>
+                            <input type="text" id="searchKeyword" placeholder="검색어를 입력하세요">
+                            <input type="submit" value="검색">
+                        </form>
+                    </section>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        &copy; 213005 문세희 | 2023 3학년 홈페이지 제작 능력 심사용 | ShareCare 
+    </footer>
+</body>
+<script>
+    // 페이지 로드 시 실행되는 함수
+	function checkCookie(name) {
+        var cookies = document.cookie.split(';');
+        for(var i = 0; i < cookies.length; i++) {
+            var c = cookies[i].trim();
+            if (c.indexOf(name + '=') == 0) return true;
+        }
+        return false;
+    }
+     window.onload = function() {
+        var isLoggedIn = checkCookie('loggedIn');
+        var loginNav = document.getElementById('loginNav');
+        var logoutLink = document.getElementById('logoutLink');
+        var section1 = document.querySelector('.section1');
+        var introLink = document.querySelector('nav ul li a[href="/000.introduce/introduce.html"]').parentNode;
+
+        if (isLoggedIn) {
+            // 사용자가 로그인한 경우, 정상적인 내용을 표시
+            logoutLink.addEventListener('click', function() {
+                // 쿠키 삭제
+                document.cookie = 'loggedIn=; expiress=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                // index.html로 리다이렉트
+                window.location.href = 'index.html';
+            });
+
+            // "소개" 메뉴 숨기기
+            introLink.style.display = 'none';
+        } else {
+			loginNav.innerHTML = '<a href="login.html">로그인</a>';
+            // "소개" 메뉴 표시
+            introLink.style.display = 'inline';
+        }
+    };
+    // 게시물 클릭 시 서버로 요청 보내는 스크립트
+    document.addEventListener('DOMContentLoaded', function () {
+        const boardList = document.querySelectorAll('.board-list-item');
+
+        boardList.forEach(function (item) {
+            item.addEventListener('click', function () {
+                const boardId = item.getAttribute('data-board-id');
+
+                // 게시물 클릭 시 서버로 요청 보내기
+                fetch(`/board2/${boardId}/increase_read_count`, {
+                    method: 'POST',
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // 서버로부터 업데이트된 게시물 정보를 받아 화면에 표시
+                    const readCountElement = item.querySelector('.read-count');
+                    if (readCountElement) {
+                        readCountElement.textContent = data.read_count;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    });
+
+    // 검색 폼 제출 시 실행되는 스크립트
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const searchOption = document.getElementById('searchOption').value;
+            const keyword = document.getElementById('searchKeyword').value;
+            const currentPage = 1; // 검색을 시작할 때는 항상 첫 페이지부터
+
+            fetch(`/api/search2?option=${searchOption}&keyword=${encodeURIComponent(keyword)}&page=${currentPage}`)
+                .then(response => response.json())
+                .then(data => {
+                    updateBoardList(data); // 게시판 리스트 업데이트
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        
+        function updateBoardList(data) {
+            const ulTable = document.getElementById('ulTable');
+            ulTable.innerHTML = ''; // 기존 목록 제거
+            ulTable.innerHTML = `
+                <li>
+                    <ul>
+                        <li><strong>번호</strong></li>
+                        <li><strong>제목</strong></li> 
+                        <li><strong>작성일</strong></li>
+                        <li><strong>작성자</strong> </li>
+                        <li><strong>조회수</strong></li>
+                    </ul>
+                </li>
+            `;
+
+            // 검색 결과를 반복하여 목록에 추가
+            data.forEach(post => {
+                const li = document.createElement('li');
+                li.className = 'board-list-item';
+                li.innerHTML = `
+                    <ul>
+                        <li><a href="/006.board02/board_Detail01.html?board_id=${post.board_id}">${post.board_id}</a></li>
+                        <li class="left"><a href="/006.board02/board_Detail01.html?board_id=${post.board_id}">${post.title}</a></li>
+                        <li><a href="/006.board02/board_Detail01.html?board_id=${post.board_id}">${new Date(post.regdate).toLocaleDateString()}</a></li>
+                        <li><a href="/006.board02/board_Detail01.html?board_id=${post.board_id}">${post.writer}</a></li>
+                        <li class="read-count"><a href="/006.board02/board_Detail01.html?board_id=${post.board_id}">${post.read_count}</a></li>
+                    </ul>
+                `;
+                ulTable.appendChild(li);
+            });
+        }
+    });
+
+    // 작성 버튼 클릭 시 실행되는 스크립트
+    document.addEventListener('DOMContentLoaded', function () {
+        const writeButton = document.getElementById('writeButtonElement');
+        writeButton.addEventListener('click', function () {
+            // loggedIn 쿠키를 확인하여 로그인 상태를 판단
+            if (document.cookie.includes('loggedIn=true')) {
+                // 로그인된 경우 작성 페이지로 이동
+                window.location.href = '/006.board02/write.html'; // 작성 페이지 경로를 지정해야 합니다.
+            } else {
+                // 로그인되지 않은 경우 로그인 페이지로 리다이렉트
+                window.location.href = '/login.html'; // 로그인 페이지 경로를 지정해야 합니다.
+            }
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var logoutLink = document.getElementById('logoutLink');
+        logoutLink.addEventListener('click', function(e) {
+            e.preventDefault(); // 기본 링크 동작 방지
+
+            fetch('/logout', { method: 'POST' }) // POST 요청으로 로그아웃 처리
+                .then(response => {
+                    if (response.ok) {
+                        // 로그아웃 성공 시 홈페이지나 로그인 페이지로 리다이렉트
+                        window.location.href = '/index.html';
+                    } else {
+                        alert('로그아웃 실패');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    });
+</script>
+</html>

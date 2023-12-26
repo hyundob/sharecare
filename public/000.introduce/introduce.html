@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcom to ShareCare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./slideStyle.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 80%, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+    }
+ 
+
+        /* 첫 번째 섹션 스타일 */
+        .section1 {
+            background: #75cea9;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to top, rgb(245, 227, 188), #75cea9);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to top, rgb(245, 227, 188), #75cea9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            height: 400px;
+            position:relative;
+        }
+
+        
+        .logo a:link { color:  #588352; text-decoration: none;}
+        .logo a:hover { color:  #588352; text-decoration: none;}
+        .logo a:visited { color:  #588352; text-decoration: none;}
+
+        .logo-box {
+            background-color: rgba(255, 255, 255, 0.795);
+            padding: 20px;
+            width: 35rem;
+            height: 48%;
+            margin:auto 0;
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .logo {
+            color: #588352;
+            font-size: 80px;
+            font-family: Sail;
+            line-height: 70%;
+            margin-top: 25px;
+        }
+
+        .slogan {
+            color: #000000;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .login-button {
+            display: block;
+            margin: 20px auto;
+            padding: 7px 7px;
+            background-color: #ff4040;
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 50px;
+            width: 25%;
+            animation: fadeInUp 1s;
+        }
+
+        
+        /* 세 번째 섹션 스타일 */
+        .section3 {
+            text-align: center;
+            padding: 30px 0;
+            overflow: hidden;
+            background-color: #D0E0CD;
+        }
+
+        .welcome-heading {
+            font-size: 55px;
+            margin-bottom: 20px;
+            color: #FF4040;
+            font-family: 배달의민족 한나는 열한살;
+        }
+
+        .welcome-message {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Scroll Animation (sa, 스크롤 애니메이션) */
+      .sa {
+        opacity: 0;
+        transition: all .5s ease;
+      }
+  
+        .sa-up {
+            display:flex;
+            width: 320px;
+            height: 400px;
+            
+            display: inline-table;
+            
+            transform: translate(0, 100px);  /* 아래에서 위로 페이드 인 */
+        }
+
+        .sa.show {
+        opacity: 1;
+        transform: none;
+      }
+
+        .sa-image {
+            flex: 0 0 100px;
+            margin-top: 20px;
+        }
+
+        .sa-description {
+            flex-grow: 1;
+            text-align: center;
+        }
+		
+		.article-description h2 {
+			font-size: 30px;
+		}
+		
+		.article-description p {
+			font-size: 20px;
+			line-height: 30px;
+		}
+
+       
+        /* 네 번째 섹션 스타일 */
+        .section4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 0;
+            background: rgb(217,251,255);
+            background: linear-gradient(180deg, rgba(217,251,255,1) 0%, rgba(168,223,245,1) 100%);
+            height: 400px;
+        }
+
+        .join-now {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 60px;
+            float: flex;
+            margin-bottom: 30px;
+        }
+
+        .join-now h2 {
+            color: #281A39;
+            font-size: 45px;
+            font-style: bold;
+        }
+
+        .join-now p {
+            color: #281A39;
+            font-size: 20px;
+            margin-top: -20px;
+            line-height:35px
+        }
+        
+
+        .start-button {
+            
+            background-color: #518D5B;
+            color: white;
+            padding: 20px 75px;
+            font-size: 30px;
+            font-style: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            font-style: bold;
+            margin-top: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 첫 번째 섹션 -->
+    <section class="section1">
+        <div class="logo-box">
+            <div class="logo"><a href="../index.html"> ShareCare </a></div>
+            <div class="slogan"><strong>공유하고, 나누고, 배우다</strong><br> 건강한 나를 만드는 습관</div>
+            <a href="../login.html" class="login-button">로그인하기 &#10095;</a>
+        </div>
+    </section>
+
+    <!-- 두 번째 섹션 -->
+    <div class="slider-2">
+    
+     <div class="side-btns">
+        <div><span><i class="fas fa-caret-left"></i></i></span></div>
+        <div><span><i class="fas fa-caret-right"></i></span></div>
+    </div>
+    
+    <div class="slides">
+        <div class="active" style="background-image:url(image/slide1.png);" ></div>
+        <div style="background-image:url(image/slide2.png);"></div>
+        <div style="background-image:url(image/slide3.png);"></div>
+      
+    </div>
+    
+    <div class="page-nav">
+        <div class="active"></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- partial -->
+  <script  src="./slideScript.js"></script>
+
+    <!-- 세 번째 섹션 -->
+    <section class="section3">
+        <h2 class="welcome-heading">셰어케어에 잘 오셨어요!</h2>
+        <p class="welcome-message">셰어케어는 여러분의 건강한 삶을 위해 함께합니다.</p>
+        
+        <div class="sa sa-up" data-sa-margin="100">
+            <div class="article-image">
+                <img src="image/personal.png" alt="이미지 1" style="width: 40%;">
+            </div>
+            <div class="article-description">
+                <h2>나만의 기록</h2>
+                <p>나의 체중, 신장, <br>BMI지수를등록하고,<br>매일 활동한 내용을 기록하며<br>변화를 확인하세요.<br>규칙적인 케어활동에 <br>도움이 될 것입니다.</p>
+            </div>
+        </div>
+        
+        <div class="sa sa-up" data-sa-margin="200">
+            <div class="article-image">
+                <img src="image/board.png" alt="이미지 2" style="width: 40%;">
+            </div>
+            <div class="article-description">
+                <h2>게시판</h2>
+                <p>전문가의 조언과<br>여러 사람들의<br>다양한 케어팁을 만나보세요.<br>나만의 팁과 레시피도<br>공유할 수 있습니다.</p>
+            </div>
+        </div>
+        
+        <div class="sa sa-up" data-sa-margin="300">
+            <div class="article-image">
+                <img src="image/community.png" alt="이미지 3" style="width: 40%;">
+            </div>
+            <div class="article-description">
+                <h2>커뮤니티</h2>
+                <p>셰어케어 회원들과<br>자유롭게 소통하세요.<br>가벼운 이야기, 헬스 팁,<br>고민에 대한<br>조언을 얻으세요.</p>
+            </div>
+        </div>
+    </section>
+
+     <!-- 네 번째 섹션 -->
+     <section class="section4">
+        <div class="join-now">
+           <h2>지금 가입하고 시작하세요</h2>
+           <p>나의 신체 상태를 입력하고, 계획을 시작하세요.<br>
+            맞춤 칼로리 정보와 다양한 운동, 식단 팁을 확인할 수 있습니다.
+            <br>
+            셰어케어가 여러분을 돕습니다.</p>
+        </div>
+        <div class="join-now" >
+            <a href="../login.html" class="start-button" >시작하기 &#10095;</a>
+        </div>
+    </section>
+    
+
+    <script>
+    // Scroll Animation (sa, 스크롤 애니메이션)
+const saDefaultMargin = 300;
+let saTriggerMargin = 0;
+let saTriggerHeight = 0;
+const saElementList = document.querySelectorAll('.sa');
+
+const saFunc = function() {
+  for (const element of saElementList) {
+    if (!element.classList.contains('show')) {
+      if (element.dataset.saMargin) {
+        saTriggerMargin = parseInt(element.dataset.saMargin);
+      } else {
+        saTriggerMargin = saDefaultMargin;
+      }
+
+      if (element.dataset.saTrigger) {
+        saTriggerHeight = document.querySelector(element.dataset.saTrigger).getBoundingClientRect().top + saTriggerMargin;
+      } else {
+        saTriggerHeight = element.getBoundingClientRect().top + saTriggerMargin;
+      }
+
+      if (window.innerHeight > saTriggerHeight) {
+        element.classList.add('show');
+      }
+    }
+  }
+}
+
+window.addEventListener('load', saFunc);
+window.addEventListener('scroll', saFunc);
+</script>
+    
+</body>
+</html>

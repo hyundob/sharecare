@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>login</title>
+  <link rel="stylesheet" href="./loginstyle.css">
+
+</head>
+<body>
+	
+	
+<!-- partial:index.partial.html -->
+<div id="container" class="container">
+		<!-- FORM SECTION -->
+		<div class="row">
+			<!-- SIGN UP -->
+			<!-- PHP -->
+
+			<div class="col align-items-center flex-col sign-up">
+				<div class="form-wrapper align-items-center">
+					<div class="form sign-up">
+						
+
+						<div class="input-group">
+							<i class='bx bxs-user'></i>
+							
+								<script   language='Javascript'> 
+									function id_check() {
+									var id = document.comma.uid.value;
+									if (id.length < 5) window.alert('ID는 5글자 이상 입력해주세요');
+									else    window.open('checkDupId.php?id=' + id, 'IDCHECK', 'width=450, height=180, scrollbars=yes');
+									} 
+								</script>
+							
+						<form action='signup-insertRecord.php' method='post' name='comma'>
+
+							<input type='text' id="inputID" placeholder="ID" name='uid' required>
+								<button id="checkID"> <a href='javascript:id_check()'> 중복확인 </a> </button>
+						</div>
+						<div class="input-group">
+							<i class='bx bx-mail-send'></i>
+							<input type="text" id="inputEmail" placeholder="Email" name='email' required>
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" id="inputPW" placeholder="Password" name='upass1' required>
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" id="inputPW" placeholder="Confirm password" name='upass2' required>
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="text" id="inputName" placeholder="Name" name='uname' required>
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="text" id="inputPhone" placeholder="Phone number" name='mphone' required>
+						</div>
+						<button type="submit">
+							가입하기
+						</button>
+						<p>
+							<span>
+								계정이 있으신가요?
+							</span>
+							<b onclick="toggle()" class="pointer">
+								로그인하기
+							</b>
+							<span class="button">
+								<!-- 아이디/비밀번호 찾기 하이퍼링크 -->
+								<div class="button-group">
+								  <a href="m-findIdPw.html">아이디 or 비밀번호 찾기</a>
+								</div>
+							<span>
+						</p>
+					</form>
+					</div>
+				</div>
+				
+			
+			</div>
+			<!-- END SIGN UP -->
+			<!-- SIGN IN -->
+			<div class="col align-items-center flex-col sign-in">
+				<div class="form-wrapper align-items-center">
+					<div class="form sign-in">
+						<!--PHP 연결-->
+						<form method='post' action='m-login.php' 
+						onsubmit="if(!this.uid.value || !this.upass.value) return false;">
+
+						<div class="input-group">
+							<i class='bx bxs-user'></i>
+							<input type="text" placeholder="ID" name='uid' required>
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" placeholder="Password" name='upass' required>
+						</div>
+						<button>
+							로그인
+						</button>
+						<p>
+							<b>
+								비밀번호 찾기
+							</b>
+						</p>
+						<p>
+							<span>
+								셰어케어가 처음이세요?
+							</span>
+							<b onclick="toggle()" class="pointer">
+								가입하기
+							</b>
+						</p>
+					</div>
+				</div>
+				<div class="form-wrapper">
+		
+				</div>
+			</div>
+			<!-- END SIGN IN -->
+		</div>
+		<!-- END FORM SECTION -->
+		<!-- CONTENT SECTION -->
+		<div class="row content-row">
+			<!-- SIGN IN CONTENT -->
+			<div class="col align-items-center flex-col">
+				<div class="text sign-in">
+					<h2>
+						Welcome
+					</h2>
+	
+				</div>
+				<div class="img sign-in">
+		
+				</div>
+			</div>
+			<!-- END SIGN IN CONTENT -->
+			<!-- SIGN UP CONTENT -->
+			<div class="col align-items-center flex-col">
+				<div class="img sign-up">
+				
+				</div>
+				<div class="text sign-up">
+					<h2>
+						Join with us
+					</h2>
+	
+				</div>
+			</div>
+			<!-- END SIGN UP CONTENT -->
+		</div>
+		<!-- END CONTENT SECTION -->
+	</div>
+<!-- partial -->
+  <script  src="./loginscript.js"></script>
+
+</body>
+</html>
